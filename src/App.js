@@ -3,6 +3,8 @@ import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import Header from './routes/landing/Header.js';
 import Footer from './components/footer/Footer';
 import UsuariosMenuAdmin from "./components/UsuariosMenuAdmin";
+import CreateProduct from './components/CreateProduct';
+
 import {
   About,
   Blog,
@@ -518,6 +520,7 @@ const addToCart = (product) => {
         <Route path="/login" element={<LoginModal />} />
 
         <Route path="/usuarios-menu-admin" element={<UsuariosMenuAdmin />} />
+        <Route path="/crearp" element={<CreateProduct />} />
 
       </Routes>
 
