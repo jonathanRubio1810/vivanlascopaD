@@ -1,0 +1,50 @@
+import React, { useState, useEffect } from 'react';
+import { initMercadoPago, Wallet } from '@mercadopago/sdk-react';
+
+const MercadoPagoForm = ({ totalPrice }) => {
+  const [preferenceId, setPreferenceId] = useState(null);
+
+  useEffect(() => {
+    // Inicializa Mercado Pago con tu public key
+    initMercadoPago('TU_PUBLIC_KEY');
+
+    // Crea la preferencia de pago en tu backend
+    const createPreference = async () => {
+      try {
+        const response = await fetch('TU_BACKEND_URL/create_preference', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            items: [
+              {
+                title: 'Compra en MarketConnect',
+                quantity: 1,
+                unit_price: totalPrice,
+              },
+            ],
+          }),
+        });
+        const data = await response.json();
+        setPreferenceId(data.id);
+      } catch (error) {
+        console.error('Error al crear la preferencia:', error);
+      }
+    };
+
+    createPreference();
+  }, [totalPrice]);
+
+  return (
+    <div>
+      {preferenceId ? (
+        <Wallet initialization={{ preferenceId }} />
+      ) : (
+        <p>Cargando...</p>
+      )}
+    </div>
+  );
+};
+
+export default MercadoPagoForm;

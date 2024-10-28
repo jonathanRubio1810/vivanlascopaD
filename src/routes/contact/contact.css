@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+/* Header */
+header {
+  width: 100%;
+  background-color: var(--dark-black); /* Fondo negro para el header */
+  color: var(--white);
+  position: absolute; /* Fija el header en la parte superior de la pantalla */
+  top: 0;
+  left: 0;
+  z-index: 1000; /* Asegura que el header esté por encima de otros elementos */
+  padding: 1rem 2rem; /* Padding para el contenido dentro del header */
+  box-sizing: border-box; /* Incluye padding y border en el ancho del elemento */
+}
+
+/* Ajustes de espacio para el contenido principal para evitar que el header lo cubra */
+main {
+  padding-top: 5rem; /* Añade espacio en la parte superior para evitar que el contenido se oculte detrás del header */
+}
+
+.banner {
+  width: 100%;
+  height: 100vh;
+  background-image: url("../../assets/images/servicio/Imagen3.jpg"); /* Imagen 3 */
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Previene el desbordamiento del contenido */
+  box-sizing: border-box; /* Incluye padding y border en el ancho y alto del elemento */
+  opacity: 0.6; /* Opacidad del 60% */
+  border-bottom-left-radius: 300px; /* Esquinas inferiores redondeadas */
+  border-bottom-right-radius: 300px; /* Esquinas inferiores redondeadas */
+}
+
+/* Ajustes específicos para dispositivos móviles */
+@media screen and (max-width: 700px) {
+  .banner {
+    height: 50vh; /* Reduce la altura del banner en pantallas pequeñas */
+    background-size: contain; /* Ajusta el tamaño de la imagen para que se contenga en el área visible */
+  }
+}
+
+/* Company Review Section */
+.company-review {
+  width: 100%;
+  padding: 4rem 2rem;
+  background-color: var(--light-black);
+  color: var(--white);
+  box-sizing: border-box; /* Incluye padding y border en el ancho del elemento */
+}
+
+.company-review h1 {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  box-sizing: border-box; /* Incluye padding y border en el ancho del elemento */
+}
+
+.company-review p {
+  font-size: 1.5rem;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  text-align: center;
+  box-sizing: border-box; /* Incluye padding y border en el ancho del elemento */
+}
+
+/* Values Section */
+.values {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem 2rem;
+  color: var(--white);
+}
+
+.values-img {
+  width: 100%;
+  height: auto;
+  max-width: 500px; /* Ajusta el tamaño máximo de la imagen */
+  margin-bottom: 2rem;
+  box-sizing: border-box; /* Incluye padding y border en el ancho del elemento */
+}
+
+.values-content {
+  width: 100%;
+  text-align: center;
+  padding: 2rem;
+  box-sizing: border-box; /* Incluye padding y border en el ancho del elemento */
+}
+
+.values-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Providers Section */
+.providers {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  padding: 4rem 2rem;
+  color: var(--white);
+}
+
+.providers-content {
+  width: 100%;
+  text-align: center;
+  padding: 2rem;
+  box-sizing: border-box; /* Incluye padding y border en el ancho del elemento */
+}
+
+.providers-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.providers-img {
+  width: 100%;
+  height: auto;
+  max-width: 500px; /* Ajusta el tamaño máximo de la imagen */
+  margin-bottom: 2rem;
+  box-sizing: border-box; /* Incluye padding y border en el ancho del elemento */
+}
+
+/* Start Now Section */
+.start-now {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 2rem;
+  background-color: var(--light-black);
+}
+
+.start-now-button {
+  background-color: #0face0; /* Azul claro */
+  color: #f7f7f7; /* Letra negra */
+  border: none;
+  border-radius: 20px; /* Bordes redondeados */
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.start-now-button:hover {
+  background-color: #71f3cc; /* Un azul un poco más oscuro para el hover */
+}
+
+/* Responsive adjustments */
+@media screen and (min-width: 700px) {
+  .company-review h1 {
+    font-size: 4rem;
+  }
+
+  .company-review p {
+    font-size: 1.75rem;
+  }
+
+  .values, .providers {
+    flex-direction: row;
+  }
+
+  .values-content, .providers-content {
+    width: 50%;
+    text-align: left;
+  }
+
+  .values-img, .providers-img {
+    width: 50%;
+    margin-bottom: 0;
+  }
+
+  .values-content h2, .providers-content h2 {
+    font-size: 3rem;
+  }
+}
+
+/* General Styles */
+* {
+  box-sizing: border-box; /* Aplica box-sizing a todos los elementos */
+  margin: 0; /* Elimina márgenes por defecto */
+  padding: 0; /* Elimina padding por defecto */
+  font-family: 'Montserrat', sans-serif; /* Establece la fuente Montserrat */
+}
+ /* Cambiar el color de los títulos a azul */
+/* h1, h2 {
+  color: rgb(105, 207, 136);
+} */
+
+/* Asegurar que el resto del texto sea blanco */
+p, span, li, a, div {
+  color: white;
+}
+
+img, .values-img, .providers-img {
+  border-radius: 20px; /* Ajusta este valor para hacer las esquinas más o menos redondeadas */
+}

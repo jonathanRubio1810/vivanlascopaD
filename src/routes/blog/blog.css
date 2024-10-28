@@ -1,0 +1,337 @@
+/* TopBar */
+.top-bar {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: hsl(195, 22%, 4%); 
+  padding: 10px 0;
+  position: relative;
+  top: 0;
+  z-index: 1000;
+  margin: 0; 
+}
+
+.menu-item {
+  color: #ffffff; 
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.menu-item a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.menu-item.categories {
+  position: relative;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: hsl(195, 22%, 4%); /* Fondo negro */
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.menu-item.categories:hover .dropdown {
+  display: block;
+}
+
+.dropdown a {
+  display: block;
+  color: #ffffff; /* Texto blanco */
+  padding: 5px 0;
+  text-decoration: none;
+}
+
+.dropdown a:hover {
+  background-color: #555; /* Fondo gris al pasar el ratón */
+}
+
+/* Estilos generales del carrusel */
+.carousel-container {
+  width: 100%;
+  padding-bottom: 2rem;
+}
+
+.carousel-wrapper {
+  background-color: hsl(195, 22%, 4%);
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.carousel-slide {
+  padding: 1rem;
+}
+
+.carousel-image {
+  width: 100%;
+  max-height: 400px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* Flechas personalizadas del carrusel */
+/* Personalización de las flechas */
+.slick-arrow {
+  width: 40px; /* Ancho de las flechas */
+  height: 40px; /* Altura de las flechas */
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+  border-radius: 50%; /* Hacer las flechas circulares */
+}
+
+.slick-prev {
+  left: 1rem;
+}
+
+.slick-next {
+  right: 1rem;
+}
+
+/* Estilo para las flechas internas */
+.slick-prev img,
+.slick-next img {
+  width: 24px;
+  height: 24px;
+}
+
+/* Color de las flechas */
+.slick-arrow:hover {
+  background-color: rgba(0, 0, 0, 0.8); /* Fondo más oscuro en hover */
+}
+
+/* Personalización de los puntos de navegación */
+.slick-dots li button:before {
+  color: #fff; /* Color de los puntos */
+}
+
+.slick-dots li.slick-active button:before {
+  color: #4F46E5; /* Color del punto activo */
+}
+
+/* Responsivo para pantallas pequeñas */
+@media (max-width: 768px) {
+  .carousel-image {
+    max-height: 300px;
+  }
+}
+
+
+/* Card Section */
+.card-section {
+  background-color: #000; /* Fondo negro */
+}
+
+.card {
+  background-color: #1a1a1a; /* Fondo de las tarjetas */
+  color: #fff; /* Color del texto */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+  background-color: #333; /* Fondo de la tarjeta en hover */
+}
+
+button {
+  transition: background-color 0.3s ease;
+}
+
+/* button:hover {
+  background-color: #444; 
+} */
+
+.image-card-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.image-card {
+  background-color: #1a1a1a;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.6);
+}
+
+.image-card h3 {
+  color: #fde502; /* Contraste amarillo para el título */
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.large-image, .small-images img {
+  border-radius: 8px;
+}
+
+.small-images {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.small-images img {
+  object-fit: cover;
+  height: 80px;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .small-images {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.legend-card-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.legend-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.legend-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.6);
+}
+
+.legend-image {
+  object-fit: cover;
+  height: 250px;
+  width: 100%;
+  border-radius: 8px;
+  opacity: 0.9;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.legend-card:hover .legend-image {
+  opacity: 1;
+}
+
+.legend-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  text-align: center;
+  transition: background 0.3s ease-in-out;
+}
+
+.legend-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.legend-content button {
+  background-color: #1e3a8a; /* Azul fuerte */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: transform 0.3s, background-color 0.3s ease;
+}
+
+.legend-content button:hover {
+  background-color: #2563eb; /* Azul más claro */
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .legend-card-section {
+    grid-template-columns: 1fr;
+  }}
+
+  .legend-card {
+    height: 300px;
+  }
+
+.final-banner {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: transparent; /* Fondo transparente */
+  gap: 20px;
+}
+
+.banner-part {
+  flex: 1;
+  background-color: transparent; /* Fondo transparente */
+  padding: 20px;
+  text-align: center;
+}
+
+.banner-part p {
+  font-size: 1.2rem;
+  color: white; /* Texto blanco */
+  margin: 10px 0 0;
+  white-space: pre-line; /* Para mantener los saltos de línea */
+}
+
+.banner-part .fa-icon {
+  color: white; /* Iconos blancos */
+  margin-bottom: 10px;
+}
+
+
+/* Responsive adjustments */
+@media screen and (max-width: 1200px) {
+  .card {
+    flex: 1 1 calc(33.33% - 20px);  /* 3 cards per row for medium screens */
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .card {
+    flex: 1 1 calc(50% - 20px);  /* 2 cards per row for small screens */
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .card {
+    flex: 1 1 100%;  /* 1 card per row for very small screens */
+  }
+}
+
+/* Responsive TopBar */
+@media screen and (max-width: 768px) {
+  .top-bar {
+    flex-direction: column;
+  }
+  .menu-item {
+    padding: 10px;
+  }
+  .dropdown {
+    top: 50px; /* Adjust based on new top-bar height */
+  }
+}
+
+/* Responsive Carousel */
+@media screen and (max-width: 768px) {
+  .carousel-container {
+    height: 50vh;  /* Adjust height for smaller screens */
+  }
+}
