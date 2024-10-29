@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { db } from '../config/sql.mjs'; // Conexión 
+import { db } from '../config/sql.mjs'; 
 
 const usersRouter = Router();
 
