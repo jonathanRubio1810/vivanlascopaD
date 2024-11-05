@@ -10,7 +10,7 @@ const LoginModal = ({ setLoginModalWindow, setValidLogin, loginModalWindow, hide
   const [loading, setLoading] = useState(false);
   const [verificationError, setVerificationError] = useState('');
   const [modalVisible, setModalVisible] = useState(false);
-  
+
   useEffect(() => {
     if (loginModalWindow) {
       setModalVisible(true);
@@ -19,6 +19,7 @@ const LoginModal = ({ setLoginModalWindow, setValidLogin, loginModalWindow, hide
 
   const handleValidation = (e) => {
     const { name, value } = e.target;
+    console.log(`${name}: ${value}`); 
     setFormValue((prevFormValue) => ({
       ...prevFormValue,
       [name]: value,
@@ -49,7 +50,6 @@ const LoginModal = ({ setLoginModalWindow, setValidLogin, loginModalWindow, hide
     );
 
     if (isValidUser) {
-      
       setValidLogin(true);
       setLoading(false);
       hideLoginModal();
@@ -90,7 +90,7 @@ const LoginModal = ({ setLoginModalWindow, setValidLogin, loginModalWindow, hide
                 name="email"
                 type="email"
                 placeholder="Correo"
-                className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow"
+                className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow text-black" 
               />
               <span className="text-red-500 text-sm">{formError.email}</span>
             </div>
@@ -101,7 +101,8 @@ const LoginModal = ({ setLoginModalWindow, setValidLogin, loginModalWindow, hide
                 name="password"
                 type="password"
                 placeholder="Contraseña"
-                className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow"
+                className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow text-black"
+                style={{ color: 'black' }} 
               />
               <span className="text-red-500 text-sm">{formError.password}</span>
             </div>

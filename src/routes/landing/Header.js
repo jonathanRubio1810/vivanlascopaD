@@ -1,11 +1,10 @@
 import React from "react";
-import logo from "../../assets/images/logoMC-w.png"; // Icono logo
-import openMenu from "../../assets/images/open-menu.svg"; // Icono abrir menú
-import closeMenu from "../../assets/images/close-menu.svg"; // Icono cerrar menú
-
-import { Link, NavLink } from "react-router-dom"; // Rutas de react-router-dom
-import SuccessMsg from "../../components/SuccessMsg"; // Componente mensaje de éxito
-import ResetLocation from "../../helpers/ResetLocation"; // Función para resetear la ubicación
+import { NavLink, Link } from "react-router-dom";
+import logo from "../../assets/images/logoMC-w.png";
+import openMenu from "../../assets/images/open-menu.svg";
+import closeMenu from "../../assets/images/close-menu.svg";
+import SuccessMsg from "../../components/SuccessMsg";
+import ResetLocation from "../../helpers/ResetLocation";
 
 const Header = ({
   loginModal,
@@ -14,11 +13,12 @@ const Header = ({
   isModalActive,
   hideMenu,
   validLogin,
+  isAdmin,
   activateLoginModal,
 }) => {
   return (
     <header>
-      {loginModal} {/* Ventana modal de login */}
+      {loginModal}
       <nav className="flex items-center justify-between h-[90px] px-10 z-10 w-full">
         <NavLink
           onClick={() => {
@@ -107,9 +107,24 @@ const Header = ({
                     hideMenu();
                   }}
                   className="btnNavBarP text-white"
-                  to="/profile"
+                  to="/usuarios-menu-admin"
                 >
-                  Profile
+                  Usuarios
+                </NavLink>
+              </li>
+            )}
+
+            {validLogin && (
+              <li>
+                <NavLink
+                  onClick={() => {
+                    ResetLocation();
+                    hideMenu();
+                  }}
+                  className="btnNavBarP text-white"
+                  to="/crearp"
+                >
+                  Registro productos
                 </NavLink>
               </li>
             )}
