@@ -67,7 +67,7 @@ const ProductCarousel = () => {
             />
             <div className="p-4 flex flex-col items-start">
               <h2 className="text-lg font-bold text-white mb-2">{product.name}</h2>
-              <p className="text-sm text-gray-400 mb-2">{product.description || "Sin descripción"}</p>
+              <p className="text-sm text-gray-400 mb-2">{product.description}</p>
               <p className="text-md font-semibold text-[#4dd49c] mb-4">${product.price}</p>
               <Link to={product.permalink} target="_blank" className="w-full">
                 <motion.button

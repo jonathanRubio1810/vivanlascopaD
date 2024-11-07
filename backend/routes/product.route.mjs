@@ -6,7 +6,7 @@ const productRouter = express.Router();
 productRouter.get('/mercadolibre-products', async (req, res) => {
   try {
     const accessToken = process.env.ACCESS_TOKEN;
-    const userId = '1285386665'; 
+    const userId = '2082937612'; 
 
     
     const response = await axios.get(`https://api.mercadolibre.com/users/${userId}/items/search`, {
