@@ -1,13 +1,41 @@
-import { Router } from 'express';
-import * as productController from '../controllers/product.controller.mjs';
-import multer from 'multer';
+import express from 'express';
+import axios from 'axios';
 
-const storage = multer.memoryStorage(); 
-const upload = multer({ storage: storage });
+const productRouter = express.Router(); 
 
-const productRouter = Router();
+productRouter.get('/mercadolibre-products', async (req, res) => {
+  try {
+    const accessToken = process.env.ACCESS_TOKEN;
+    const userId = '1285386665'; 
 
-productRouter.get('/', productController.getAllProducts); 
-productRouter.get('/:id', productController.getProduct);
-productRouter.post('/', upload.single('image'), productController.createProduct); 
+    
+    const response = await axios.get(`https://api.mercadolibre.com/users/${userId}/items/search`, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
+
+    const productIds = response.data.results;
+
+    
+    const productDetails = await Promise.all(
+      productIds.map(async (productId) => {
+        const productResponse = await axios.get(`https://api.mercadolibre.com/items/${productId}`);
+        return {
+          id: productResponse.data.id,
+          name: productResponse.data.title,
+          price: productResponse.data.price,
+          imageUrl: productResponse.data.thumbnail,
+          permalink: productResponse.data.permalink,
+        };
+      })
+    );
+
+    res.json(productDetails);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Error al obtener los productos de Mercado Libre' });
+  }
+});
+
 export default productRouter;

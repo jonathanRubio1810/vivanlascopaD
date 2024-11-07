@@ -13,7 +13,7 @@ const ProductCarousel = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/products");
+        const response = await axios.get("http://localhost:5000/api/products/mercadolibre-products");
         setProducts(response.data);
       } catch (err) {
         setError("Error al cargar los productos.");
@@ -67,9 +67,9 @@ const ProductCarousel = () => {
             />
             <div className="p-4 flex flex-col items-start">
               <h2 className="text-lg font-bold text-white mb-2">{product.name}</h2>
-              <p className="text-sm text-gray-400 mb-2">{product.description}</p>
+              <p className="text-sm text-gray-400 mb-2">{product.description || "Sin descripción"}</p>
               <p className="text-md font-semibold text-[#4dd49c] mb-4">${product.price}</p>
-              <Link to="#" className="w-full">
+              <Link to={product.permalink} target="_blank" className="w-full">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
