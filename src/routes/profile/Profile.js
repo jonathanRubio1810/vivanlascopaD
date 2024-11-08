@@ -3,15 +3,15 @@ import ResetLocation from "../../helpers/ResetLocation";
 import { useNavigate } from "react-router-dom";
 import validateForm from "../../components/validateForm";
 
-
 const Profile = ({ currentUser, handleLogout, updateUser }) => {
     const [editForm, setEditForm] = useState(false);
     const [formValue, setFormValue] = useState({ email: '', password: '', fullname: '', address: '', number: '' });
     const [formErrors, setFormErrors] = useState({});
     const [loading, setLoading] = useState(false);
     const [confirmationModal, setConfirmationModal] = useState(false);
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const validate = validateForm("profile");
+
     const toggleForm = () => {
         setEditForm(!editForm);
     }
@@ -51,7 +51,7 @@ const Profile = ({ currentUser, handleLogout, updateUser }) => {
     }
 
     const confirmDeleteUser = () => {
-        ResetLocation()
+        ResetLocation();
         setConfirmationModal(true);
     }
 
@@ -60,21 +60,23 @@ const Profile = ({ currentUser, handleLogout, updateUser }) => {
             const response = await fetch(`${process.env.REACT_APP_USERS_URL}/${id}`, {
                 method: 'DELETE'
             });
-            if (response.status === 200) {
+            if (response.ok) {
+                // Redirige a la página de inicio y cierra sesión
                 navigate("/");
                 handleLogout();
-                return true;
+                console.log("Usuario eliminado correctamente.");
+            } else {
+                console.error("Error al eliminar el usuario:", response.status);
             }
-        }
-        catch (err) {
-            console.log(err.message);
-            return false;
+        } catch (err) {
+            console.log("Error al eliminar el usuario:", err.message);
         }
     }
 
     useEffect(() => {
         document.title = "MarketConnect";
     }, []);
+
     return (
         <main className="profile">
             <h2>Profile information</h2>
@@ -174,9 +176,7 @@ const Profile = ({ currentUser, handleLogout, updateUser }) => {
                 </section>
                 : null}
         </main>
-    )
+    );
 }
-
-
 
 export default Profile;

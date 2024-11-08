@@ -23,7 +23,15 @@ module.exports = {
       boxShadow: {
         'custom': '0 4px 10px -1px hsl(155, 78%, 64%), 0 2px 4px -1px rgba(255, 0, 0, 0.1)',
       },
-
+      animation: {
+        fadeIn: 'fadeIn 0.5s ease-in-out',
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+      },
     },
   },
   plugins: [

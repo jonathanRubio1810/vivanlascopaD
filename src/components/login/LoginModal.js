@@ -43,6 +43,7 @@ const LoginModal = ({ setLoginModalWindow, setValidLogin, loginModalWindow, hide
     const validCredentials = [
       { email: 'carlos@gmail.com', password: 'carlos1234A@' },
       { email: 'jared@gmail.com', password: 'jared1234' },
+      { email: 'ingGus@gmail.com', password: 'gustavo1234' },
     ];
 
     const isValidUser = validCredentials.some(
