@@ -82,7 +82,7 @@ const UsuariosMenuAdmin = () => {
                 ))
               ) : (
                 <tr>
-                  <td colSpan="6" className="py-2 px-4 text-center text-black">No se encontraron usuarios.</td>
+                  <td colSpan="6" className="py-2 px-4 text-center text-black">No se encontraron usuarios bro.</td>
                 </tr>
               )}
             </tbody>
